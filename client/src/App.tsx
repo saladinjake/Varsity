@@ -6,7 +6,8 @@ import Navbar from './components/Navbar';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
-
+import Home from './pages/Home';
+import CoursesExplorer from './pages/CoursesExplorer';
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,8 @@ function App() {
 
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/courses" element={<CoursesExplorer />} />
 
                   </Routes>
                 </main>
