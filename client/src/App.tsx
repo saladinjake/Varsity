@@ -17,6 +17,11 @@ import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import InstructorDashboard from './pages/InstructorDashboard';
 
+import Certification from './pages/Certification';
+import Analytics from './pages/Analytics';
+import Settings from './pages/Settings';
+import MyAssets from './pages/MyAssets';
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -44,6 +49,10 @@ function App() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/admin" element={<AdminDashboard />} />
                     <Route path="/instructor" element={<InstructorDashboard />} />
+
+                    <Route path="/dashboard/certification" element={<Certification />} />
+                    <Route path="/dashboard/analytics" element={<Analytics />} />
+                    <Route path="/dashboard/settings" element={<Settings />} />
 
                   </Routes>
                 </main>
