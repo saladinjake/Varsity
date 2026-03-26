@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
+;
+import Navbar from './components/Navbar';
 
 
 const queryClient = new QueryClient();
@@ -12,7 +14,9 @@ function App() {
       <Router>
         <Toaster position="top-center" reverseOrder={false} />
         <div className="min-h-screen flex flex-col bg-[#fcfdfe] text-[#0f172a] font-jakarta antialiased">
+          <Navbar />
           <Routes>
+
 
             <Route path="*" element={
               <>
@@ -25,7 +29,11 @@ function App() {
 
           </Routes>
 
-
+          <footer className="bg-white border-t border-slate-200 py-12 mt-20">
+            <div className="max-w-7xl mx-auto px-6 text-center text-slate-500 font-medium">
+              <p>&copy; 2026 Varsity EdTech. High-Performance Learning Ecosystem.</p>
+            </div>
+          </footer>
         </div>
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />
