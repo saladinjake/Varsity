@@ -8,6 +8,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import CoursesExplorer from './pages/CoursesExplorer';
+import CourseDetails from './pages/CourseDetails';
+import CourseNavigation from './pages/CourseNavigation';
 
 const queryClient = new QueryClient();
 
@@ -29,13 +31,13 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/courses" element={<CoursesExplorer />} />
-
+                    <Route path="/course/:slug" element={<CourseDetails />} />
                   </Routes>
                 </main>
               </>
             } />
             {/* Pages without Navbar (Full Screen Player) */}
-
+            <Route path="/course/:slug/nav" element={<CourseNavigation />} />
           </Routes>
 
           <footer className="bg-white border-t border-slate-200 py-12 mt-20">
