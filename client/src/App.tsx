@@ -10,6 +10,12 @@ import Home from './pages/Home';
 import CoursesExplorer from './pages/CoursesExplorer';
 import CourseDetails from './pages/CourseDetails';
 import CourseNavigation from './pages/CourseNavigation';
+import CreateCourse from './pages/CreateCourse';
+
+
+import Dashboard from './pages/Dashboard';
+import AdminDashboard from './pages/AdminDashboard';
+import InstructorDashboard from './pages/InstructorDashboard';
 
 const queryClient = new QueryClient();
 
@@ -32,6 +38,13 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/courses" element={<CoursesExplorer />} />
                     <Route path="/course/:slug" element={<CourseDetails />} />
+                    <Route path="/instructor/new-course" element={<CreateCourse />} />
+
+
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/admin" element={<AdminDashboard />} />
+                    <Route path="/instructor" element={<InstructorDashboard />} />
+
                   </Routes>
                 </main>
               </>
