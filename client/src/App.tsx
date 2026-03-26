@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
-;
 import Navbar from './components/Navbar';
+
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 
 const queryClient = new QueryClient();
@@ -14,18 +16,22 @@ function App() {
       <Router>
         <Toaster position="top-center" reverseOrder={false} />
         <div className="min-h-screen flex flex-col bg-[#fcfdfe] text-[#0f172a] font-jakarta antialiased">
-          <Navbar />
           <Routes>
-
-
+            {/* Pages with Navbar */}
             <Route path="*" element={
               <>
-
+                <Navbar />
                 <main className="flex-grow pt-24">
-                  build online e-learning system
+                  <Routes>
+
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+
+                  </Routes>
                 </main>
               </>
             } />
+            {/* Pages without Navbar (Full Screen Player) */}
 
           </Routes>
 
