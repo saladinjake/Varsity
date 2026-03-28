@@ -30,6 +30,12 @@ export const updateProgress = (payload: { courseId: number, lessonId: number, st
 export const enrollInCourse = (payload: any) =>
   api.post('/enroll', payload).then(r => r.data);
 
+export const createPaymentSession = (payload: { courseId: number, paymentMethod: string }) =>
+  api.post('/payment/create-session', payload).then(r => r.data);
+
+export const verifyPaystackPayment = (reference: string) =>
+  api.post('/payment/verify-paystack', { reference }).then(r => r.data);
+
 export const adminGetUsers = () =>
   api.get('/admin/users').then(r => r.data);
 export const adminToggleUser = (id: number) =>

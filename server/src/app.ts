@@ -5,6 +5,7 @@ import authRoutes from './routes/auth.routes';
 import courseRoutes from './routes/course.routes';
 import adminRoutes from './routes/admin.routes';
 import instructorRoutes from './routes/instructor.routes';
+import paymentRoutes from './routes/payment.routes';
 
 dotenv.config();
 
@@ -23,5 +24,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api', courseRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/instructor', instructorRoutes);
+app.use('/api/payment', paymentRoutes);
 
 export default app;

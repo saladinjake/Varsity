@@ -10,13 +10,16 @@
     "test": "vitest"
   },
   "dependencies": {
+    "axios": "^1.14.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "paystack-api": "^2.0.6",
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "stripe": "^21.0.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

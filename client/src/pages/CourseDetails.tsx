@@ -1,15 +1,19 @@
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Play, Clock, Globe, Shield, BarChart, ChevronRight, Lock, CheckCircle, ArrowRight } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { getCourseBySlug, enrollInCourse } from '../services/api';
 import { useStore } from '../store/useStore';
+import PaymentWizard from '../components/PaymentWizard';
+import { AnimatePresence } from 'framer-motion';
 
 export default function CourseDetails() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { isAuthenticated } = useStore();
   const queryClient = useQueryClient();
+  const [showPayment, setShowPayment] = useState(false);
 
   const { data: course, isLoading } = useQuery({
     queryKey: ['course', slug],
@@ -38,12 +42,7 @@ export default function CourseDetails() {
 
     // ths will for now we can simulate payment flow for paid courses bcus i need to implement stripe k later
     if (course.price > 0) {
-      const paymentId = 'PAY-' + Math.random().toString(36).substr(2, 9).toUpperCase();
-      enrollmentMutation.mutate({
-        courseId: course.id,
-        paymentMethod: 'stripe',
-        paymentId
-      });
+      setShowPayment(true);
     } else {
       enrollmentMutation.mutate({ courseId: course.id });
     }
@@ -191,6 +190,19 @@ export default function CourseDetails() {
           </div>
         </aside>
       </div>
+      <AnimatePresence>
+        {showPayment && (
+          <PaymentWizard 
+            course={course} 
+            onClose={() => setShowPayment(false)} 
+            onSuccess={() => {
+              setShowPayment(false);
+              queryClient.invalidateQueries({ queryKey: ['course', slug] });
+              navigate('/dashboard?enrolled=true');
+            }} 
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
