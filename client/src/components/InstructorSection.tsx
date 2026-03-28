@@ -38,7 +38,7 @@ export default function InstructorSection() {
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-[4rem] group border border-slate-100 shadow-2xl bg-white">
+    <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-[1rem] group border border-slate-100 shadow-2xl bg-white">
       <div className="p-20 flex flex-col justify-center gap-12 border-b lg:border-b-0 lg:border-r border-slate-100 relative">
         <AnimatePresence mode="wait">
           <motion.div
@@ -57,7 +57,7 @@ export default function InstructorSection() {
                 {slides[index].badge}
               </span>
             </div>
-            <h2 
+            <h2
               className="text-6xl font-outfit font-black tracking-tighter text-slate-900 leading-[0.9] uppercase"
               dangerouslySetInnerHTML={{ __html: slides[index].title }}
             />
@@ -83,20 +83,20 @@ export default function InstructorSection() {
       </div>
 
       <div className="relative min-h-[600px] overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" 
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] ease-linear repeat-infinite scale-110 hover:scale-100" 
+        <img
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200"
+          className="absolute w-full h-full object-cover transition-transform duration-[20s] ease-linear repeat-infinite scale-110 hover:scale-100"
           alt="Instructor background"
         />
-        <div className="absolute inset-0 bg-blue-600/10 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gray-600 backdrop-blur-[2px]"></div>
         <div className="absolute inset-0 p-20 flex flex-col justify-end gap-6 text-white p-20">
-            <div className="flex flex-col gap-2">
-                <span className="text-xs font-black uppercase tracking-widest text-white/60">Success Story</span>
-                <p className="text-3xl font-outfit font-black italic tracking-tighter leading-tight">"Teaching on Varsity changed my career. I've reached students I never thought possible."</p>
-                <span className="text-sm font-bold uppercase tracking-widest mt-4 flex items-center gap-3">
-                    <span className="w-12 h-[2px] bg-sky-500"></span> Dr. Sarah Jensen
-                </span>
-            </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-xs font-black uppercase tracking-widest text-white/60">Success Story</span>
+            <p className="text-3xl font-outfit font-black italic tracking-tighter leading-tight">"Teaching on Varsity changed my career. I've reached students I never thought possible."</p>
+            <span className="text-sm font-bold uppercase tracking-widest mt-4 flex items-center gap-3">
+              <span className="w-12 h-[2px] bg-sky-500"></span> Dr. Sarah Jensen
+            </span>
+          </div>
         </div>
       </div>
     </section>
