@@ -103,9 +103,9 @@ export async function setupTables(db: Database) {
       is_completed BOOLEAN DEFAULT 0,
       FOREIGN KEY (user_id) REFERENCES users(id),
       FOREIGN KEY (course_id) REFERENCES courses(id),
-      UNIQUE(user_id, course_id)
+    
     )
-  `);
+  `);//  UNIQUE(user_id, course_id)
 
   // Reviews Table
   await db.exec(`
